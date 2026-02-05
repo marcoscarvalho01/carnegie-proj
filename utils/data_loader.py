@@ -1,10 +1,12 @@
 import pandas as pd
 import pathlib
+from utils.caching import cache
 
 # dynamically define dir path
 PATH = pathlib.Path(__file__).parent.parent.joinpath("data")
 MARKETING_CAMPAIGN_DATASET_PATH = PATH.joinpath('marketing_campaign_data.xlsx')
 
+@cache.memoize(timeout=1800)
 def get_f_campaign_performance():
     """
     Loads campaign performance table

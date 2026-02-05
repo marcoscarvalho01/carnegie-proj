@@ -1,8 +1,16 @@
 import dash
 from dash import Dash, html, dcc
 import dash_bootstrap_components as dbc
+from utils.caching import cache
 
 app = Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.FLATLY])
+
+cache_config = {
+    "CACHE_TYPE": "SimpleCache",  
+    "CACHE_DEFAULT_TIMEOUT": 300  # Default 5 minutes
+}
+
+cache.init_app(app.server, config=cache_config)
 
 app.layout = dbc.Container([
     dbc.NavbarSimple(
