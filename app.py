@@ -4,6 +4,7 @@ import dash_bootstrap_components as dbc
 from utils.caching import cache
 
 app = Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.BOOTSTRAP])
+server = app.server
 
 cache_config = {
     "CACHE_TYPE": "SimpleCache",  
