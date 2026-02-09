@@ -3,7 +3,7 @@ from dash import Dash, html, dcc
 import dash_bootstrap_components as dbc
 from utils.caching import cache
 
-app = Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.FLATLY])
+app = Dash(__name__, use_pages=True, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 cache_config = {
     "CACHE_TYPE": "SimpleCache",  
@@ -25,7 +25,7 @@ app.layout = dbc.Container([
     ),
     
     dash.page_container 
-], fluid=True)
+], className="px-0 pt-0", fluid=True)
 
 if __name__ == '__main__':
     app.run(debug=True)

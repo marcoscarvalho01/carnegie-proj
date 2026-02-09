@@ -23,14 +23,7 @@ def layout():
         dbc.Row([
             dbc.Col(html.H2("Campaign Performance"), width=12)
         ]),
-        dbc.Row([
-            dbc.Col(make_kpi_card("Total Revenue", "revenue-card")),
-            dbc.Col(make_kpi_card("Total Spend", "spend-card")),
-            dbc.Col(make_kpi_card("ROI (Revenue/Cost)", "roi-card")),
-            dbc.Col(make_kpi_card("Total Enrollments", "enrollments-card")),
-            dbc.Col(make_kpi_card("CPA (Cost/Enroll)", "cpa-card"))
-        ], class_name="mb-4 row-cols-1 row-cols-md-5 g-3"),
-
+        
         dbc.Row([
             dbc.Col(make_drop_down('kpi-dropdown', "Select KPI:", all_kpis, False), width=3),
             dbc.Col(make_drop_down('campaign-dropdown', "Campaign", all_campaings, True), width=3),
@@ -38,6 +31,14 @@ def layout():
             dbc.Col(make_drop_down('platform-dropdown', "Platform", all_platforms, True), width=3),
 
         ], className="mb-4"),
+
+        dbc.Row([
+            dbc.Col(make_kpi_card("Total Revenue", "revenue-card")),
+            dbc.Col(make_kpi_card("Total Spend", "spend-card")),
+            dbc.Col(make_kpi_card("ROI (Revenue/Cost)", "roi-card")),
+            dbc.Col(make_kpi_card("Total Enrollments", "enrollments-card")),
+            dbc.Col(make_kpi_card("CPA (Cost/Enroll)", "cpa-card"))
+        ], class_name="mb-4 row-cols-1 row-cols-md-5 g-3"),
 
         dbc.Row([
             dbc.Col(dcc.Graph(id='performance-by-campaign-graph'), width=6),
